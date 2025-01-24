@@ -12,6 +12,7 @@ namespace StarterAssets
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool interact;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -64,6 +65,11 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void InteractionInput(bool newInteractionState)
+		{
+			interact = newInteractionState;
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)

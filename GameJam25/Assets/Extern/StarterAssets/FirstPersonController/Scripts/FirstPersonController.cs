@@ -63,7 +63,6 @@ namespace StarterAssets
 		// timeout deltatime
 		private float _jumpTimeoutDelta;
 		private float _fallTimeoutDelta;
-
 	
 #if ENABLE_INPUT_SYSTEM
 		private PlayerInput _playerInput;
@@ -74,7 +73,15 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
-		private bool IsCurrentDeviceMouse
+		//--------------------------------------------------------------
+        // actions
+        private InputAction _interact;
+		private TVController _currentTV;
+
+		// bools
+		private bool _canInteract;
+
+        private bool IsCurrentDeviceMouse
 		{
 			get
 			{
@@ -86,14 +93,28 @@ namespace StarterAssets
 			}
 		}
 
-		private void Awake()
+        private void OnEnable()
+        {
+			_interact.performed += Interact;
+        }
+
+        private void OnDisable()
+        {
+            _interact.performed -= Interact;
+        }
+
+        private void Awake()
 		{
 			// get a reference to our main camera
 			if (_mainCamera == null)
 			{
 				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
 			}
-		}
+			
+			_playerInput = GetComponent<PlayerInput>();
+            _interact = _playerInput.actions["Interact"];
+
+        }
 
 		private void Start()
 		{
@@ -107,7 +128,7 @@ namespace StarterAssets
 
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
-			_fallTimeoutDelta = FallTimeout;
+			_fallTimeoutDelta = FallTimeout;	
 		}
 
 		private void Update()
@@ -264,5 +285,32 @@ namespace StarterAssets
 			// when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
 			Gizmos.DrawSphere(new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z), GroundedRadius);
 		}
-	}
+
+		private void Interact(InputAction.CallbackContext context)
+		{
+			if(_canInteract)
+			{
+				if(_currentTV.IsOn)
+				{
+					_currentTV.TurnOFF();
+				}
+				else
+				{
+					_currentTV.TurnON();
+				}
+			}
+		}
+
+        private void OnTriggerEnter(Collider other)
+        {
+            _canInteract = true;
+			TVController tv = other.GetComponent<TVController>();
+			_currentTV = tv;
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            _canInteract = false;
+        }
+    }
 }
