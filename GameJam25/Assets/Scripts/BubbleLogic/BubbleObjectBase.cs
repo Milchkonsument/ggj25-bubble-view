@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 
+[Serializable]
 public abstract class BubbleObjectBase : MonoBehaviour
 {
     // Distance to the Camera in which we can pop this bubble
@@ -9,7 +11,21 @@ public abstract class BubbleObjectBase : MonoBehaviour
 
     public Rigidbody rigidBody;
 
-    public enum bubbleTypePlaceholder { Light, Dark, Reflect };
+    public BubbleType bubbleType;
+
+    public enum BubbleType
+    {
+        Default,
+        Reflection,
+        BlackAndWhite,
+        RedFilter,
+        BlueFilter,
+        GreenFilter,
+        Light,
+        Rage,
+        Void,
+        XRay,
+    }
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -31,6 +47,7 @@ public abstract class BubbleObjectBase : MonoBehaviour
     public void PopBubble()
     {
         // TODO animation stuff
+
 
         if (this != null)
         {
