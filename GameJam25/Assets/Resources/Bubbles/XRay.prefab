@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4703473705494323097}
   - component: {fileID: 2275380361446989604}
   - component: {fileID: 7892085113097356902}
+  - component: {fileID: 6324084931369011523}
   m_Layer: 0
   m_Name: XRay
   m_TagString: Untagged
@@ -105,7 +106,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -154,6 +155,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &6324084931369011523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72099122005146664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IsGlobal: 0
+  priority: 0
+  blendDistance: 0.1
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 9d9a06a67c803344a84338976bfccb72, type: 2}
 --- !u!1 &2805852760312104061
 GameObject:
   m_ObjectHideFlags: 0
