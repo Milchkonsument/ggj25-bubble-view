@@ -9,6 +9,7 @@ public abstract class BubbleObjectBase : MonoBehaviour
 
     public Rigidbody rigidBody;
 
+    public BubbleType bubbleType;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,3 +58,18 @@ public abstract class BubbleObjectBase : MonoBehaviour
     }
 
 }
+
+public enum BubbleType
+{
+    Default,
+    Reflection,
+    BlackAndWhite,
+    RedFilter,
+    BlueFilter,
+    GreenFilter,
+    Light,
+    Rage,
+    Void,
+    XRay,
+}
+
