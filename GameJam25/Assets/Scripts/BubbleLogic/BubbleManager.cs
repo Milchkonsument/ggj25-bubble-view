@@ -5,14 +5,16 @@ using System.Drawing;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using static BubbleObjectBase;
 
 public class BubbleMakingComponent : MonoBehaviour
 {
     private BubbleObjectBase currentBubble;
     private Queue<BubbleObjectBase> currentBubbleQueue;
 
-    [SerializeField] private int maxBubbleNumber = 2;
+    [SerializeField] private int maxBubbleNumber;
 
+    public bubbleTypePlaceholder currentBubbleType;
 
     // BUBBLE SPAWN PARAMETERS
     public GameObject bubblePreset;
@@ -59,13 +61,15 @@ public class BubbleMakingComponent : MonoBehaviour
 
         Vector3 spawnPosition = GetRelativeClickPosition();
 
-        // TODO dynamic groudn position
+        // TODO dynamic ground position
         if (spawnPosition.y < minDistanceToGround)
         {
             spawnPosition.y = minDistanceToGround;
         }
 
-        var newBubbleObject = GameObject.Instantiate(bubblePreset, spawnPosition, Quaternion.identity);
+        GameObject bubblePrefab = GetBubblePrefabOfType(currentBubbleType);
+
+        var newBubbleObject = GameObject.Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
         newBubbleObject.transform.localScale = new Vector3(bubbleMinSize, bubbleMinSize, bubbleMinSize);
 
         currentBubble = newBubbleObject.GetComponent<DefaultBubble>();
@@ -173,5 +177,16 @@ public class BubbleMakingComponent : MonoBehaviour
             bubbleToDelete.PopBubble();
         }
     }
+
+
+    // BUBBLE TYPE LOGIC
+    public GameObject GetBubblePrefabOfType(bubbleTypePlaceholder type)
+    {
+        // TODO
+
+        return bubblePreset;
+    }
+
+
 
 }
