@@ -9,6 +9,8 @@ public abstract class BubbleObjectBase : MonoBehaviour
 
     public Rigidbody rigidBody;
 
+    public enum bubbleTypePlaceholder { Light, Dark, Reflect };
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
