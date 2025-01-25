@@ -117,7 +117,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _GradientAnimationSpeed: 1
-    - _GradientIntensity: 2
+    - _GradientIntensity: 3.8
     - _HighlightAnimationSpeed: 0
     - _HighlightIntensity: 5.57
     - _Metallic: 0
@@ -127,7 +127,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 2.07
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
