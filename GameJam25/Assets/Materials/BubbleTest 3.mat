@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BorderSampleTexture:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: b4e17bbbc05999246941165de3d2c94f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -101,7 +101,7 @@ Material:
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BorderAnimationSpeed: 0
+    - _BorderAnimationSpeed: 3
     - _BorderThinness: 12
     - _BumpScale: 1
     - _ClearCoatMask: 0

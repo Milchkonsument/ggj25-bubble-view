@@ -97,7 +97,7 @@ Material:
     - _AddPrecomputedVelocity: 0
     - _Alpha: 2
     - _AlphaClip: 0
-    - _AlphaCorrection: 0
+    - _AlphaCorrection: 1.19
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -110,6 +110,8 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DitherCutoff: 2
+    - _DitherStrength: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
@@ -117,7 +119,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _GradientAnimationSpeed: 1
-    - _GradientIntensity: 2
+    - _GradientIntensity: 3.8
     - _HighlightAnimationSpeed: 0
     - _HighlightIntensity: 5.57
     - _Metallic: 0
@@ -127,7 +129,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 2.07
+    - _Smoothness: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

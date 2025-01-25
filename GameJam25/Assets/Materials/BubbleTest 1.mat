@@ -103,7 +103,7 @@ Material:
     - _BlendModePreserveSpecular: 1
     - _BorderAnimationSpeed: 1
     - _BorderSize: 0
-    - _BorderThinness: 0.64
+    - _BorderThinness: 3.98
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -111,14 +111,16 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _DitherCutoff: 0.6
+    - _DitherStrength: 0
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GradientAnimationSpeed: 0.3
-    - _GradientIntensity: 3.58
+    - _GradientAnimationSpeed: 0.6
+    - _GradientIntensity: 2262.64
     - _HighlightAnimationSpeed: 3
     - _HighlightIntensity: 5.24
     - _Metallic: 0
@@ -138,7 +140,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 0, b: 1, a: 1}
-    - _BorderColor: {r: 4.679245, g: 0, b: 0, a: 0.12941177}
+    - _BorderColor: {r: 1.1353016, g: 0, b: 0, a: 0.12941177}
     - _BorderHighlight: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
