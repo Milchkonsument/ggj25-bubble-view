@@ -561,8 +561,8 @@
     ],
     "m_VertexContext": {
         "m_Position": {
-            "x": 749.9999389648438,
-            "y": 211.0
+            "x": 704.0000610351563,
+            "y": 59.99992370605469
         },
         "m_Blocks": [
             {
@@ -578,8 +578,8 @@
     },
     "m_FragmentContext": {
         "m_Position": {
-            "x": 749.9999389648438,
-            "y": 410.9999694824219
+            "x": 704.0000610351563,
+            "y": 259.9999694824219
         },
         "m_Blocks": [
             {
@@ -1964,10 +1964,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 602.0000610351563,
-            "y": 527.0,
-            "width": 140.0,
-            "height": 34.0
+            "x": 752.0000610351563,
+            "y": 376.0000305175781,
+            "width": 139.9998779296875,
+            "height": 33.99993896484375
         }
     },
     "m_Slots": [
@@ -2794,10 +2794,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 591.0,
-            "y": 746.0,
-            "width": 150.99993896484376,
-            "height": 33.99993896484375
+            "x": 518.0,
+            "y": 544.0,
+            "width": 151.0,
+            "height": 34.0
         }
     },
     "m_Slots": [
@@ -3094,7 +3094,7 @@
     "m_Type": "UnityEditor.ShaderGraph.Vector1MaterialSlot",
     "m_ObjectId": "89a30e5755834bfca98719940b3a5cf8",
     "m_Id": 0,
-    "m_DisplayName": "HighlightIntensity",
+    "m_DisplayName": "GradientIntensity",
     "m_SlotType": 1,
     "m_Hidden": false,
     "m_ShaderOutputName": "Out",
