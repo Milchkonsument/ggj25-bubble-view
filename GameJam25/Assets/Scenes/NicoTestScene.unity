@@ -416,14 +416,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxBubbleNumber: 10
-  bubblePreset: {fileID: 1514732481905027135, guid: 7fb50ffa7b2224f4bb1c23c4063f5c04, type: 3}
+  bubbleTypeIndex: 0
+  currentBubbleType: 0
+  usableBubbleTypes: 000000000100000002000000030000000400000005000000060000000800000009000000
+  bubblePrefabs:
+  - {fileID: 8689596003274944280, guid: a51041dc05e0592448021ccf650ac53e, type: 3}
+  - {fileID: 4963363500781196278, guid: 08a11eb84c2aaab4a9068fd371f4b526, type: 3}
+  - {fileID: 7670447610749230801, guid: d0a0ebf504ed1ea4a8c64112cd3da3f5, type: 3}
+  - {fileID: 8753178455156668368, guid: 5daaee8a26a41b642a23c2bf7c958889, type: 3}
+  - {fileID: 2166303256486394234, guid: 1ec9f307d041e724f97b2b7600409600, type: 3}
+  - {fileID: 6959558770215485273, guid: 208ab247bb6285e4b97f0c1fa535cbaa, type: 3}
+  - {fileID: 1819581293232870923, guid: c7cc77381f6db4a4683bd00d8f094bb3, type: 3}
+  - {fileID: 4000748356436254745, guid: 8f565a467f44fe24285bd94fa31bd227, type: 3}
+  - {fileID: 3620887840218824966, guid: f648f8622f1821b48ad200a4de6d146f, type: 3}
+  - {fileID: 2275380361446989604, guid: 40cb145932ea736428e2731005a70d43, type: 3}
   bubbleMinSize: 0.1
   bubbleMaxSize: 5
   growToMaxSizeDuration: 4
   spawnToCameraDistance: 2
   defaultBubbleSize: {x: 1, y: 1, z: 1}
   minDistanceToGround: 0.05
-  finishedBubbleForcefactor: 0.5
+  finishedBubbleForcefactor: 0.03
   bubbleGrowCurve:
     serializedVersion: 2
     m_Curve:

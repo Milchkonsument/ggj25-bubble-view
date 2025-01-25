@@ -1,4 +1,5 @@
 using StarterAssets;
+using System;
 using UnityEngine;
 
 public abstract class BubbleObjectBase : MonoBehaviour
@@ -10,7 +11,21 @@ public abstract class BubbleObjectBase : MonoBehaviour
 
     public Rigidbody rigidBody;
 
-    public enum bubbleTypePlaceholder { Light, Dark, Reflect };
+    public BubbleType bubbleType;
+
+    public enum BubbleType
+    {
+        Default,
+        Reflection,
+        BlackAndWhite,
+        RedFilter,
+        BlueFilter,
+        GreenFilter,
+        Light,
+        Rage,
+        Void,
+        XRay,
+    }
 
     private void OnMouseDown()
     {
@@ -21,7 +36,8 @@ public abstract class BubbleObjectBase : MonoBehaviour
     {
         // TODO animation stuff
 
-        if(this != null)
+
+        if (this != null)
         {
             Destroy(this.gameObject);
         }

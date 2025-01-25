@@ -14,10 +14,13 @@ public class BubbleMakingComponent : MonoBehaviour
 
     [SerializeField] private int maxBubbleNumber;
 
-    public bubbleTypePlaceholder currentBubbleType;
+
+    public int bubbleTypeIndex = 0;
+    public BubbleType currentBubbleType;
+    public List<BubbleType> usableBubbleTypes;
+    public List<BubbleObjectBase> bubblePrefabs;
 
     // BUBBLE SPAWN PARAMETERS
-    public GameObject bubblePreset;
 
     [SerializeField] private float bubbleMinSize;
     [SerializeField] private float bubbleMaxSize;
@@ -51,6 +54,56 @@ public class BubbleMakingComponent : MonoBehaviour
         {
             SpawnBubble();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(2);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(3);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(4);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(5);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(6);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(7);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(8);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            currentBubbleType = GetUsuableTypeByIndex(0);
+        }
     }
 
     // Blubberblasenblasende Blubberblasenfunction zum Blubberblasenblasen
@@ -67,12 +120,12 @@ public class BubbleMakingComponent : MonoBehaviour
             spawnPosition.y = minDistanceToGround;
         }
 
-        GameObject bubblePrefab = GetBubblePrefabOfType(currentBubbleType);
+        BubbleObjectBase bubblePrefab = GetBubblePrefabOfType(currentBubbleType);
 
         var newBubbleObject = GameObject.Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
         newBubbleObject.transform.localScale = new Vector3(bubbleMinSize, bubbleMinSize, bubbleMinSize);
 
-        currentBubble = newBubbleObject.GetComponent<DefaultBubble>();
+        currentBubble = newBubbleObject.GetComponent<BubbleObjectBase>();
 
         AddBubbleToQueue(currentBubble);
 
@@ -106,8 +159,11 @@ public class BubbleMakingComponent : MonoBehaviour
             // Move bubble here to not clash with update timing
             currentBubble.MoveTo(GetRelativeClickPosition() - GetBubbleSurfaceOffset(currentBubble));
 
-            yield return null;
+            yield return 0;
         }
+
+        if (currentBubble == null)
+            yield return 0;
 
         if (t >= growToMaxSizeDuration)
         {
@@ -122,10 +178,13 @@ public class BubbleMakingComponent : MonoBehaviour
             currentBubble.transform.localScale = defaultBubbleSize;
         }
 
-        // Apply little force at the end
-        Vector3 forceDirection = (currentBubble.transform.position - Camera.main.transform.position).normalized;
+        if (currentBubble != null)
+        {
+            // Apply little force at the end
+            Vector3 forceDirection = (currentBubble.transform.position - Camera.main.transform.position).normalized;
+            currentBubble.rigidBody.AddRelativeForce(forceDirection * finishedBubbleForcefactor, ForceMode.Force);
+        }
 
-        currentBubble.rigidBody.AddRelativeForce(forceDirection * finishedBubbleForcefactor, ForceMode.Force);
 
         bIsGrowingBubble = false;
         yield return 0;
@@ -174,19 +233,35 @@ public class BubbleMakingComponent : MonoBehaviour
         if (currentBubbleQueue.Count > maxBubbleNumber)
         {
             var bubbleToDelete = currentBubbleQueue.Dequeue();
-            bubbleToDelete.PopBubble();
+
+            if (bubbleToDelete != null)
+            {
+                bubbleToDelete.PopBubble();
+            }
         }
     }
 
 
     // BUBBLE TYPE LOGIC
-    public GameObject GetBubblePrefabOfType(bubbleTypePlaceholder type)
+    public BubbleObjectBase GetBubblePrefabOfType(BubbleType type)
     {
-        // TODO
+        foreach (BubbleObjectBase bubble in bubblePrefabs)
+        {
+            if (bubble.bubbleType == type)
+            {
+                return bubble;
+            }
+        }
 
-        return bubblePreset;
+        return null;
     }
 
+    public BubbleType GetUsuableTypeByIndex(int index)
+    {
+        if (index > usableBubbleTypes.Count)
+            return BubbleType.Default;
 
+        return usableBubbleTypes[index];
+    }
 
 }
