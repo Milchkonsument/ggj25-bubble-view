@@ -42,8 +42,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 98bf40b41ab4b3d4fb2e29b5c5545839, type: 2}
-  m_audioClip: {fileID: 8300000, guid: a3ad86e943bece540904935cc83b6c2d, type: 3}
-  m_Resource: {fileID: 8300000, guid: a3ad86e943bece540904935cc83b6c2d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 785f0f5c9a1c74f41a9c30cee3a61aff, type: 3}
+  m_Resource: {fileID: 8300000, guid: 785f0f5c9a1c74f41a9c30cee3a61aff, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -197,3 +197,4 @@ MonoBehaviour:
   - type: 9
     preset: {fileID: 11400000, guid: 0b25548c410fede47acb1289e8602089, type: 2}
   mixerGroup: {fileID: 24300002, guid: 98bf40b41ab4b3d4fb2e29b5c5545839, type: 2}
+  currentlyActivePreset: {fileID: 0}

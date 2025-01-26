@@ -269,6 +269,9 @@ public class BubbleMakingComponent : MonoBehaviour
         var type = usableBubbleTypes[index];
         var bubble = GetBubblePrefabOfType(type);
 
+        if (bubble == null)
+            return BubbleType.Default;
+
         var renderer = bubble.gameObject.GetComponent<Renderer>();
         var material = renderer.sharedMaterial;
 
