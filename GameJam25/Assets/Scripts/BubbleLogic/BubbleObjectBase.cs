@@ -72,9 +72,10 @@ public abstract class BubbleObjectBase : MonoBehaviour
     {
         var collidedObject = collider.gameObject;
 
-        if (collidedObject.TryGetComponent<FirstPersonController>(out var player))
+        if (collidedObject.CompareTag("Player"))
         {
             OnPlayerExit();
+            Debug.Log("Exit");
             return;
         }
     }
