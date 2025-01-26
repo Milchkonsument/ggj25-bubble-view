@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9d0fe71842e0943bedd8d492d50d90, type: 3}
   m_Name: Default
   m_EditorClassIdentifier: 
-  gain: 3.3
+  gain: -6.09
   pitch: 1
-  reverb: 1
-  lowpass: 22000
+  reverb: 8.26
+  lowpass: 3182
   highpass: 10
   distortion: 0
-  chorus: 0
+  chorus: 1
