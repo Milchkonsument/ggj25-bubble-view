@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class LetterInputController : MonoBehaviour
 {
+    [SerializeField] private TutorialManager tutorialManager;
+
     public Action OnSolutionFound;
     public string solution = "AMELIA";
     private string currentString = "";
@@ -30,5 +32,7 @@ public class LetterInputController : MonoBehaviour
         {
             OnSolutionFound.Invoke();
         }
+
+        tutorialManager.OnWin();
     }
 }
