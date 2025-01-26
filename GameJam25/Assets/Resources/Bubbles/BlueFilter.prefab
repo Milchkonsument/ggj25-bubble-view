@@ -126,6 +126,7 @@ MonoBehaviour:
   maxPopDistance: 30
   minDistanceToGround: 0.05
   rigidBody: {fileID: 4151997543526292657}
+  bubbleType: 4
 --- !u!54 &4151997543526292657
 Rigidbody:
   m_ObjectHideFlags: 0

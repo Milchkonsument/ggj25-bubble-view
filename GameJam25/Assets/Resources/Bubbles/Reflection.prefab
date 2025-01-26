@@ -127,6 +127,7 @@ MonoBehaviour:
   maxPopDistance: 30
   minDistanceToGround: 0.05
   rigidBody: {fileID: 1117051003252289692}
+  bubbleType: 1
   reflectionMaterial: {fileID: 2100000, guid: 53ed99cdebdb61a479af1574ea0dfb96, type: 2}
 --- !u!54 &1117051003252289692
 Rigidbody:
