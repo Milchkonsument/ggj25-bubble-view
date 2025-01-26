@@ -14,5 +14,6 @@ public class LetterInputObject : MonoBehaviour
         // TODO feedback sound
         Debug.Log(letter);
         letterInputController.AddLetterToString(letter);
+        
     }
 }
