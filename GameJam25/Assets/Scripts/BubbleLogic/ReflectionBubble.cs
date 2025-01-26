@@ -2,15 +2,19 @@ using UnityEngine;
 
 public class ReflectionBubble : BubbleObjectBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Material reflectionMaterial;
+
+    protected override void OnPlayerEnter ()
     {
-        
+        base.OnPlayerEnter();
+
+        EnvironmentManager.Modify(comp => comp.GetComponent<MeshRenderer>().material = reflectionMaterial);
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnPlayerExit ()
     {
-        
+        base.OnPlayerExit();
+
+        EnvironmentManager.RestoreAll();
     }
 }

@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class XRayBubble : BubbleObjectBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public Material xrayMaterial;
+    public Material redMaterial;
+
+    protected override void OnPlayerEnter ()
     {
-        
+        base.OnPlayerEnter();
+
+        EnvironmentManager.Modify(comp => comp.GetComponent<MeshRenderer>().material = xrayMaterial);
+        EnvironmentManager.Modify(comp => comp.GetComponent<MeshRenderer>().material = redMaterial, "red");
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnPlayerExit ()
     {
-        
+        base.OnPlayerExit();
+
+        EnvironmentManager.RestoreAll();
     }
 }

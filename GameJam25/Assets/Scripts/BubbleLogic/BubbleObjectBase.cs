@@ -1,7 +1,7 @@
+using StarterAssets;
 using System;
 using UnityEngine;
 
-[Serializable]
 public abstract class BubbleObjectBase : MonoBehaviour
 {
     // Distance to the Camera in which we can pop this bubble
@@ -27,18 +27,6 @@ public abstract class BubbleObjectBase : MonoBehaviour
         XRay,
     }
 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     private void OnMouseDown()
     {
         PopBubble();
@@ -61,18 +49,41 @@ public abstract class BubbleObjectBase : MonoBehaviour
         rigidBody.MovePosition(position);
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collider)
     {
-        var collidedObject = collision.gameObject;
-        BubbleObjectBase collidedBubble = collidedObject.GetComponent<BubbleObjectBase>();
+        var collidedObject = collider.gameObject;
 
-        if (collidedBubble != null)
+        if (collidedObject.CompareTag("Player"))
         {
-            // Maybe animation here
+            OnPlayerEnter();
             return;
         }
 
-        PopBubble();
+        if (collidedObject.TryGetComponent<BubbleObjectBase>(out var collidedBubble) == false)
+        {
+            PopBubble();
+            return;
+        }
     }
 
+    private void OnTriggerExit (Collider collider)
+    {
+        var collidedObject = collider.gameObject;
+
+        if (collidedObject.TryGetComponent<FirstPersonController>(out var player))
+        {
+            OnPlayerExit();
+            return;
+        }
+    }
+
+    protected virtual void OnPlayerEnter()
+    {
+
+    }
+
+    protected virtual void OnPlayerExit()
+    {
+
+    }
 }
