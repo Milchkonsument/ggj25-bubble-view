@@ -43,7 +43,7 @@ public abstract class BubbleObjectBase : MonoBehaviour
         {
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.clip = PopSound;
-            audioSource.pitch = 0.8f;
+            //audioSource.pitch = 0.8f;
             audioSource.outputAudioMixerGroup = AudioManager.Instance.mixerGroup;
             audioSource.Play();
             
