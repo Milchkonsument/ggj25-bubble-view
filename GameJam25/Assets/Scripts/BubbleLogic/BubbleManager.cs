@@ -5,6 +5,7 @@ using System.Drawing;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using static BubbleObjectBase;
 
 public class BubbleMakingComponent : MonoBehaviour
@@ -13,6 +14,7 @@ public class BubbleMakingComponent : MonoBehaviour
     private Queue<BubbleObjectBase> currentBubbleQueue;
 
     [SerializeField] private int maxBubbleNumber;
+    [SerializeField] private Image textureUIImage;
 
 
     public int bubbleTypeIndex = 0;
@@ -264,7 +266,20 @@ public class BubbleMakingComponent : MonoBehaviour
         if (index > usableBubbleTypes.Count)
             return BubbleType.Default;
 
+        var type = usableBubbleTypes[index];
+        var bubble = GetBubblePrefabOfType(type);
+
+        var renderer = bubble.gameObject.GetComponent<Renderer>();
+        var material = renderer.sharedMaterial;
+
+        SetUITexture(material);
+
         return usableBubbleTypes[index];
+    }
+
+    private void SetUITexture(Material material)
+    {
+        textureUIImage.material = material;
     }
 
 }
