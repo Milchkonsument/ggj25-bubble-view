@@ -15,7 +15,7 @@ MonoBehaviour:
   gain: 3.3
   pitch: 1
   reverb: 1
-  lowpass: 22000
+  lowpass: 1067
   highpass: 10
   distortion: 0
   chorus: 0

@@ -21,15 +21,15 @@ public class AudioManager : MonoBehaviour
             if(_instance == null)
             {
                 _instance = FindFirstObjectByType<AudioManager>();
-
-                if(_instance == null)
-                {
-                    _instance = Resources.Load<AudioManager>("Audio/AudioManager");
-                }
             }
 
             return _instance;
         }
+    }
+
+    private void Awake ()
+    {
+        ApplyEffectPreset(normal);
     }
 
     public void SetMixerEffectsByBubbleType (BubbleObjectBase.BubbleType bubbleType)
