@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7978335533788105856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5309740515880150754}
+  - component: {fileID: 6482362957582227569}
+  m_Layer: 0
+  m_Name: BubbleManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5309740515880150754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978335533788105856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.1975484, y: -6.54442, z: 9.618668}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6482362957582227569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7978335533788105856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8af03714b3ad8c247b8dda8b9f13c6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxBubbleNumber: 10
+  textureUIImage: {fileID: 0}
+  bubbleTypeIndex: 0
+  currentBubbleType: 0
+  usableBubbleTypes: 000000000100000002000000030000000400000005000000060000000800000009000000
+  bubblePrefabs:
+  - {fileID: 8689596003274944280, guid: a51041dc05e0592448021ccf650ac53e, type: 3}
+  - {fileID: 4963363500781196278, guid: 08a11eb84c2aaab4a9068fd371f4b526, type: 3}
+  - {fileID: 7670447610749230801, guid: d0a0ebf504ed1ea4a8c64112cd3da3f5, type: 3}
+  - {fileID: 8753178455156668368, guid: 5daaee8a26a41b642a23c2bf7c958889, type: 3}
+  - {fileID: 2166303256486394234, guid: 1ec9f307d041e724f97b2b7600409600, type: 3}
+  - {fileID: 6959558770215485273, guid: 208ab247bb6285e4b97f0c1fa535cbaa, type: 3}
+  - {fileID: 1819581293232870923, guid: c7cc77381f6db4a4683bd00d8f094bb3, type: 3}
+  - {fileID: 4000748356436254745, guid: 8f565a467f44fe24285bd94fa31bd227, type: 3}
+  - {fileID: 3620887840218824966, guid: f648f8622f1821b48ad200a4de6d146f, type: 3}
+  - {fileID: 2275380361446989604, guid: 40cb145932ea736428e2731005a70d43, type: 3}
+  bubbleMinSize: 0.1
+  bubbleMaxSize: 5
+  growToMaxSizeDuration: 4
+  spawnToCameraDistance: 2
+  defaultBubbleSize: {x: 1, y: 1, z: 1}
+  minDistanceToGround: 0.05
+  finishedBubbleForcefactor: 0.01
+  bubbleGrowCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  bIsGrowingBubble: 0
+  bCanBlowBubbles: 1
