@@ -1,6 +1,7 @@
 using StarterAssets;
 using System;
 using System.ComponentModel;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class BubbleObjectBase : MonoBehaviour
@@ -13,6 +14,8 @@ public abstract class BubbleObjectBase : MonoBehaviour
     public Rigidbody rigidBody;
 
     public BubbleType bubbleType;
+
+    public AudioClip PopSound;
 
     public enum BubbleType
     {
@@ -36,11 +39,18 @@ public abstract class BubbleObjectBase : MonoBehaviour
     public void PopBubble()
     {
         // TODO animation stuff
-
-
         if (this != null)
         {
-            Destroy(this.gameObject);
+            AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.clip = PopSound;
+            audioSource.pitch = 0.8f;
+            audioSource.outputAudioMixerGroup = AudioManager.Instance.mixerGroup;
+            audioSource.Play();
+            
+            Renderer rend = gameObject.GetComponent<Renderer>();
+            rend.enabled = false;
+            
+            Destroy(gameObject, 1f);
         }
     }
 
@@ -72,9 +82,10 @@ public abstract class BubbleObjectBase : MonoBehaviour
     {
         var collidedObject = collider.gameObject;
 
-        if (collidedObject.TryGetComponent<FirstPersonController>(out var player))
+        if (collidedObject.CompareTag("Player"))
         {
             OnPlayerExit();
+            Debug.Log("Exit");
             return;
         }
     }
