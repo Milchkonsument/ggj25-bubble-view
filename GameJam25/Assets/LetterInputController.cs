@@ -6,8 +6,11 @@ public class LetterInputController : MonoBehaviour
     public Action OnSolutionFound;
     public string solution = "AMELIA";
     private string currentString = "";
+    public AudioSource audioSource;
     public void AddLetterToString(string letter)
     {
+        audioSource.Play();
+        
         if (!solution.Contains(letter))
         {
             currentString = "";

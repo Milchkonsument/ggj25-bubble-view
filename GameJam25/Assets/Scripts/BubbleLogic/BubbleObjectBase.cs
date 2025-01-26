@@ -41,16 +41,27 @@ public abstract class BubbleObjectBase : MonoBehaviour
         // TODO animation stuff
         if (this != null)
         {
+            Renderer rend = gameObject.GetComponent<Renderer>();
+            
+            if(!rend.enabled)
+                return;
+            
             AudioSource audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.clip = PopSound;
             //audioSource.pitch = 0.8f;
             audioSource.outputAudioMixerGroup = AudioManager.Instance.mixerGroup;
             audioSource.Play();
+
+            ParticleSystem PopSystem = gameObject.GetComponent<ParticleSystem>();
+            if (PopSystem != null)
+            {
+                PopSystem.Play();
+            }
             
-            Renderer rend = gameObject.GetComponent<Renderer>();
+            
             rend.enabled = false;
             
-            Destroy(gameObject, 1f);
+            Destroy(gameObject, 2f);
         }
     }
 
@@ -62,6 +73,10 @@ public abstract class BubbleObjectBase : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
+        Renderer rend = gameObject.GetComponent<Renderer>();
+        if(!rend.enabled)
+            return;
+        
         var collidedObject = collider.gameObject;
 
         if (collidedObject.CompareTag("Player"))
