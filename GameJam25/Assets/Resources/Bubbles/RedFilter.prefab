@@ -127,6 +127,7 @@ MonoBehaviour:
   minDistanceToGround: 0.05
   rigidBody: {fileID: 448539207611623489}
   bubbleType: 3
+  PopSound: {fileID: 8300000, guid: dfbc0662728f7f4458e7e58f7a033c30, type: 3}
 --- !u!54 &448539207611623489
 Rigidbody:
   m_ObjectHideFlags: 0
