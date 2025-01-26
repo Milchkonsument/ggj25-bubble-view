@@ -1,5 +1,6 @@
 using StarterAssets;
 using System;
+using System.ComponentModel;
 using UnityEngine;
 
 public abstract class BubbleObjectBase : MonoBehaviour
@@ -80,11 +81,11 @@ public abstract class BubbleObjectBase : MonoBehaviour
 
     protected virtual void OnPlayerEnter()
     {
-
+        AudioManager.Instance.SetMixerEffectsByBubbleType(bubbleType);
     }
 
     protected virtual void OnPlayerExit()
     {
-
+        AudioManager.Instance.ResetMixerEffects();
     }
 }

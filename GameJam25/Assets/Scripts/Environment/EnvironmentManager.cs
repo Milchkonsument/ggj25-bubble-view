@@ -53,7 +53,6 @@ public static class EnvironmentManager
     {
         foreach(var component in environmentComponentsWithSnapshot.Keys.Where(c => layerName == null || c.componentLayer == layerName))
         {
-            Debug.Log("hallo");
             modification(component);
         }
     }
