@@ -65,13 +65,16 @@ public class EnvironmentComponentStateSnapshot
     private EnvironmentComponent component;
 
     private Material material;
+    private MeshRenderer meshRenderer;
     private bool isActive;
+    private bool isRendering;
 
     public EnvironmentComponentStateSnapshot (EnvironmentComponent component)
     {
         this.component = component;
         material = component.GetComponent<MeshRenderer>().material;
         isActive = true;
+        isRendering = component.GetComponent<MeshRenderer>().enabled;
     }
 
     /// <summary>
@@ -79,7 +82,9 @@ public class EnvironmentComponentStateSnapshot
     /// </summary>
     public void Restore ()
     {
+        meshRenderer = component.GetComponent<MeshRenderer>();
         component.GetComponent<MeshRenderer>().material = material;
         component.gameObject.SetActive(isActive);
+        meshRenderer.enabled = isRendering;
     }
 }
