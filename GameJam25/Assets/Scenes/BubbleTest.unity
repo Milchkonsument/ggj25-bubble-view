@@ -1803,6 +1803,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8748431030979093880, guid: 15aa731222c936a4a91f5997617c2f56, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 785f0f5c9a1c74f41a9c30cee3a61aff, type: 3}
+    - target: {fileID: 8748431030979093880, guid: 15aa731222c936a4a91f5997617c2f56, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 785f0f5c9a1c74f41a9c30cee3a61aff, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
