@@ -2,15 +2,17 @@ using UnityEngine;
 
 public class BlackAndWhiteBubble : BubbleObjectBase
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void OnPlayerEnter()
     {
-        
+        base.OnPlayerEnter();
+
+        EnvironmentManager.Modify(c => c.gameObject.GetComponent<MeshRenderer>().enabled = true, "reflectionActivate");
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void OnPlayerExit()
     {
-        
+        base.OnPlayerExit();
+
+        EnvironmentManager.RestoreAll();
     }
 }
