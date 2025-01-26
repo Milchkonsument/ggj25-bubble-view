@@ -122,6 +122,9 @@ public class BubbleMakingComponent : MonoBehaviour
 
         BubbleObjectBase bubblePrefab = GetBubblePrefabOfType(currentBubbleType);
 
+        if (bubblePrefab == null)
+            return;
+
         var newBubbleObject = GameObject.Instantiate(bubblePrefab, spawnPosition, Quaternion.identity);
         newBubbleObject.transform.localScale = new Vector3(bubbleMinSize, bubbleMinSize, bubbleMinSize);
 

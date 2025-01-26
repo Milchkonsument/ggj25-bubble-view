@@ -127,6 +127,7 @@ MonoBehaviour:
   maxPopDistance: 30
   minDistanceToGround: 0.05
   rigidBody: {fileID: 7892085113097356902}
+  bubbleType: 9
   xrayMaterial: {fileID: 2100000, guid: bae57c67249592d4eb80c9dd226ee514, type: 2}
   redMaterial: {fileID: 2100000, guid: 948f3a888907fbd4996db5e436c7fcfa, type: 2}
 --- !u!54 &7892085113097356902

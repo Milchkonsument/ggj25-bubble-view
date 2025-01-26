@@ -62,6 +62,7 @@ public abstract class BubbleObjectBase : MonoBehaviour
         if (collidedObject.TryGetComponent<BubbleObjectBase>(out var collidedBubble) == false)
         {
             PopBubble();
+            Debug.Log("WHY?");
             return;
         }
     }
