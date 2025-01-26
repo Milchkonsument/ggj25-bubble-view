@@ -26,6 +26,9 @@ public class MainMenu : MonoBehaviour
     private Toggle _fullscreenToggle;
     [SerializeField]
     private float _fadeDuration;
+    [SerializeField]
+    private Button[] _menuButtons;
+
 
     [Header("PostProcessing")]
     [SerializeField]
@@ -37,6 +40,10 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         Debug.Log("Started");
+        foreach (Button btn in _menuButtons)
+        {
+            btn.interactable = false;
+        }
     }
 
     // Update is called once per frame
@@ -104,12 +111,16 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(3);
 
         float secondTimeElapsed = 0f;
-        while (secondTimeElapsed < _fadeDuration * 2)
+        while (secondTimeElapsed < _fadeDuration - 1)
         {
             secondTimeElapsed += Time.deltaTime;
-            _menuCanvasGroup.alpha = Mathf.Lerp(0f, 0.5f, secondTimeElapsed / (_fadeDuration * 2));
+            _menuCanvasGroup.alpha = Mathf.Lerp(0f, 1f, secondTimeElapsed / (_fadeDuration - 1));
             yield return null;
         }
-        _menuCanvasGroup.alpha = 0.5f;
+        foreach(Button btn in _menuButtons)
+        {
+            btn.interactable = true;
+        }
+        _menuCanvasGroup.alpha = 1f;
     }
 }
